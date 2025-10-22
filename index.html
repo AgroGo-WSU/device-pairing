@@ -120,7 +120,7 @@
                 }
 
                 try {
-                    const res = await fetch('https://api.agrogo.org/api/auth/pairDevice', {
+                    const res = await fetch('https://backend.agrogodev.workers.dev/api/auth/pairDevice', {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${idToken}`,
