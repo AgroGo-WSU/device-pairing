@@ -214,7 +214,6 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD5H47l8jzAJeve392CLEPPRVWFad40KJE",
         authDomain: "agrogo-c4f0e.firebaseapp.com",
-        //authDomain: "agrogo.org",
         projectId: "agrogo-c4f0e",
         storageBucket: "agrogo-c4f0e.firebasestorage.app",
         messagingSenderId: "811174867409",
@@ -287,7 +286,7 @@
         }
 
         try {
-          const res = await fetch("https://api.agrogo.org/api/auth/pairDevice", {
+          const res = await fetch("https://backend.agrogodev.workers.dev/api/auth/pairDevice", {
             method: "POST",
             headers: {
               Authorization: `Bearer ${idToken}`,
