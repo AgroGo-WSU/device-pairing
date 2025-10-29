@@ -205,6 +205,7 @@
         GoogleAuthProvider,
         GithubAuthProvider,
         signInWithPopup,
+        signInWithRedirect,
         signInWithEmailAndPassword,
         createUserWithEmailAndPassword,
         onAuthStateChanged,
@@ -213,6 +214,7 @@
       const firebaseConfig = {
         apiKey: "AIzaSyD5H47l8jzAJeve392CLEPPRVWFad40KJE",
         authDomain: "agrogo-c4f0e.firebaseapp.com",
+        //authDomain: "agrogo.org",
         projectId: "agrogo-c4f0e",
         storageBucket: "agrogo-c4f0e.firebasestorage.app",
         messagingSenderId: "811174867409",
@@ -240,7 +242,8 @@
       $("btn-google").onclick = async () => {
         const provider = new GoogleAuthProvider();
         try {
-          await signInWithPopup(auth, provider);
+          // await signInWithPopup(auth, provider);
+          await signinWithRedirect
         } catch (e) {
           console.error(e);
           setStatus("Sign in failed");
@@ -250,7 +253,8 @@
       $("btn-github").onclick = async () => {
         const provider = new GithubAuthProvider();
         try {
-          await signInWithPopup(auth, provider);
+          //await signInWithPopup(auth, provider);
+          await signInWithRedirect(auth, provider);
         } catch (e) {
           console.error(e);
           setStatus("Sign in failed");
