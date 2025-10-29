@@ -304,9 +304,9 @@
 
           const cleanMessage = `Paired device ${data.raspiMac} to user ${data.email}`;
 
-          $("result").textContent = cleanMessage
+          //$("result").textContent = cleanMessage
           if (res.ok) { 
-            setStatus("Pairing successful! signing out...");
+            setStatus(cleanMessage);
             signOut(auth);
           } else {
             setStatus("Pairing failed: " + (data?.error || res.status));
