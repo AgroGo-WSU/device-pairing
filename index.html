@@ -194,7 +194,6 @@
         </div>
 
         <div id="status" class="auth-error"></div>
-        <pre id="result"></pre>
       </div>
     </div>
 
@@ -301,10 +300,8 @@
           });
 
           const data = await res.json();
-
           const cleanMessage = `Paired device ${data.raspiMac} to user ${data.email}`;
 
-          //$("result").textContent = cleanMessage
           if (res.ok) { 
             setStatus(cleanMessage);
             signOut(auth);
