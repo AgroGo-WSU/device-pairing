@@ -209,6 +209,7 @@
         signInWithEmailAndPassword,
         createUserWithEmailAndPassword,
         onAuthStateChanged,
+        signOut
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
       const firebaseConfig = {
@@ -300,9 +301,16 @@
           });
 
           const data = await res.json();
-          $("result").textContent = JSON.stringify(data, null, 2);
-          if (res.ok) setStatus("Pairing successful!");
-          else setStatus("Pairing failed: " + (data?.error || res.status));
+
+          const cleanMessage = `Paired device ${data.raspiMac} to user ${data.email}`;
+
+          $("result").textContent = cleanMessage
+          if (res.ok) { 
+            setStatus("Pairing successful! signing out...");
+            signOut(auth);
+          } else {
+            setStatus("Pairing failed: " + (data?.error || res.status));
+          }
         } catch (e) {
           console.error(e);
           setStatus("Pairing error: " + e.message);
